@@ -4,7 +4,7 @@ User
     has_many :accounts
     has_many :stations, through: :accounts
 
-    -name(string)
+    -username(string)
     -email(string)
     -password_digest(string)
 
