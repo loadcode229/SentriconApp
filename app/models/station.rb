@@ -1,4 +1,3 @@
 class Station < ApplicationRecord
-  belongs_to :user
-  belongs_to :accounts
+  has_many :accounts
 end

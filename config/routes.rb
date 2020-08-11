@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :accounts_users
   resources :accounts
   resources :users
   resources :stations

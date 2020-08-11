@@ -5,7 +5,6 @@ class CreateAccounts < ActiveRecord::Migration[6.0]
       t.string :name
       t.string :phone_number
       t.string :instructions
-      t.belongs_to :user, null: false, foreign_key: true
 
       t.timestamps
     end
