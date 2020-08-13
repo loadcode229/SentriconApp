@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #root
-  root 'users#index'
+  root 'welcome#home'
   #user routes
   get '/users/new', to: 'users#new', as: 'new_user'
   get '/users', to: 'users#index', as: 'users'

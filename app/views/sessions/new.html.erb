@@ -3,7 +3,7 @@
     <div class="form_group">
         <%= label_tag(:username, "Your name:") %>
 
-        <%= collection_select(:username, User.all, :name, :user, prompt: "Please select your username from this dropdown") %>
+        <%= collection_select(:username, User.all, :user, :username, prompt: "Please select your username from this dropdown") %>
     </div>
 
     <div class="form_group">

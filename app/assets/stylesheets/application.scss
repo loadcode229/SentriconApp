@@ -1,0 +1,76 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+//navbar stylings
+
+.main-head {
+    text-decoration: none;
+    color: #535963;
+    font-family: 'League Script', cursive;
+    font-weight: bold;
+    font-size: 300%;
+    padding-top: 20px;
+    padding-left: 30px;
+  }
+ 
+  .nav-element {
+    font-size: 15px;
+    padding-top: 4px;
+  }
+ 
+  .divider-vertical {
+    height: 50px;
+    margin: 0 9px;
+    border-left: 1px solid #e2e2e2;
+    border-right: 1px solid #FFF;
+  }
+ 
+  .fa {
+    width: 40px;
+    text-align: center;
+    text-decoration: none;
+    margin: 5px 2px;
+  }
+ 
+  .fa:hover {
+    opacity: 0.75;
+  }
+ 
+  .fa-facebook {
+    background: #F8F8F8;
+    color: #3B5998;
+  }
+ 
+  .fa-twitter {
+    background: #F8F8F8;
+    color: #55ACEE;
+    margin-right: 25px;
+  }
+ 
+  .fa-instagram {
+    background: #F8F8F8;
+    color: #125688;
+  }
+ 
+ //indentation for all headers and elements
+ 
+ .indent-headers {
+   margin-left: 20px;
+ }
+ 
+ .indent-elements {
+   margin-left: 27px;
+ }

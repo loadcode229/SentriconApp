@@ -2,6 +2,12 @@ class UsersController < ApplicationController
     skip_before_action :verify_user_is_authenticated, only: [:index, :new, :create]
 
     def index
+        if session[:user_id]
+            user = User.find(session[:user_id])
+            redirect_to user_path(user)
+        else
+            render 'index'
+        end
 
     end
 

@@ -4,7 +4,7 @@ class User < ApplicationRecord
     has_many :accounts, through: :accounts_user
     before_validation :lowercase_email
     before_create :lowercase_email
-    validates :name, presence: true
+    validates :username, presence: true
     validates :email, presence: true, uniqueness: true
 
     def lowercase_email
