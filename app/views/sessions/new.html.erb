@@ -1,24 +1,22 @@
-<%= form_tag('/session', method: :post) do %>
-    
-    <div class="form_group">
-        <%= label_tag(:username, "Your name:") %>
+<h2 class="indent-headers">Log In!</h2>
 
-        <%= collection_select(:username, User.all, :user, :username, prompt: "Please select your username from this dropdown") %>
-    </div>
+<font color="red"><%= flash[:notice] %></font>
 
-    <div class="form_group">
-        <%= label_tag(:email, "Your email:") %>
-
-        <%= collection_select(:email, User.all, :email, prompt: "Please select your email from this dropdown") %>
-    </div>
-
-    <div class="form-group">
-        <%= label_tag(:password, "Your password:") %>
-        <%= password_field_tag(:password, nil, class: "form-control") %>
-    </div>
-
-    <div class="actions">
-        <%= submit_tag("Sign In") %>
-    </div>
-
-<% end %>
+<br><br>
+<div class="indent-elements">
+    <%= form_for :user, url: '/login' do |f| %>
+        <%= f.label :username %><br>
+        <%= f.text_field :username %>
+        <br><br>
+        <%= f.label :email %><br>
+        <%= f.text_field :email %>
+        <br><br>
+        <%= f.label :password %><br>
+        <%= f.password_field :password %>
+        <br><br>
+        <%= f.submit "Log In" %>
+    <% end %>
+    <br><br>
+    <p>Don't have an account? <%= link_to "Sign Up", new_user_path %></p>
+    <p><%= link_to "Home", root_path %></p>
+</div>

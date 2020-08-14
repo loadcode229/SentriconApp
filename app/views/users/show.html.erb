@@ -1,16 +1,7 @@
-<p> id="notice"><%= notice %></p>
+<h2 class="indent-headers">Welcome <%= @user.username %>!</h2>
 
-<% if flash[:message] %>
-    <div class="center alert">
-        <p><%= flash[:message] %></p>
-    </div>
-<% end %>
-
-<div class="center">
-
-    <div class="info">
-        <p><strong>Username:</strong> <%= @user.username %></p>
-        <p><strong>Email:</strong> <%= @user.email %></p>
-        
-    </div>
+<div class="indent-elements">
+    <h3>Your accounts:</h3>
 </div>
+
+
