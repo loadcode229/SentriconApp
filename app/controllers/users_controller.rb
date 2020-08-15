@@ -8,7 +8,6 @@ class UsersController < ApplicationController
         else
             render 'index'
         end
-
     end
 
     def new
@@ -26,6 +25,12 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find_by(id: params[:id])
+        account_id_arr = AccountsUser.all.collect do |a_u|
+            if a_u.user_id == @user.id
+                a_u.account_id
+            end
+        end.compact
+        @accounts = Account.find(account_id_arr)
     end
 
     private
