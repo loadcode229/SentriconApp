@@ -5,11 +5,11 @@ class SessionsController < ApplicationController
     end
 
     def create
-        flash[:notice] = "Username, email, or password is incorrect."
-        if authenticates
+        flash[:notice] = "Email or password is incorrect."
+        if auth
             @user = User.find_or_create_by(uid: auth['uid']) do |u|
-                u.username = authenticates['info']['username']
-                u.email = authenticates['info']['email'].lowercase_email
+                u.username = auth['info']['username']
+                u.email = auth['info']['email'].downcase
             end
         else
             @user = User.find_by(username: params[:user][:username], email: params[:user][:email])
@@ -18,18 +18,17 @@ class SessionsController < ApplicationController
         end
 
         session[:user_id] = @user.id
-
         redirect_to user_path(@user)
     end
 
     def destroy
-        session.delete("user_id")
+        session[:user_id] = nil
         redirect_to '/'
     end
 
     private
 
-    def authenticates
+    def auth
         request.env['omniauth.auth']
     end
 end

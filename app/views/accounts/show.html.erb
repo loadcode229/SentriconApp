@@ -1,0 +1,13 @@
+<h2><%= @account.name %></h2>
+
+<div>
+    <p><%= @account.address %>.</p>
+    <p><%= @account.phone_number %>.</p>
+    <p><%= @account.instructions %>.</p>
+    <ul>
+        <%= @account.stations.each do |e| %>
+            <li><%= link_to e.name, account_station_path(@account, e) %></li>
+        <% end %>
+    </ul>
+    <%= link_to "Add stations for this account", new_account_station_path(@account) %>
+</div>

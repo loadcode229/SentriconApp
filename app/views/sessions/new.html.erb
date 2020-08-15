@@ -1,15 +1,10 @@
-<h2 class="indent-headers">Log In!</h2>
-
-<font color="red"><%= flash[:notice] %></font>
+<h2>Log In!</h2>
 
 <br><br>
-<div class="indent-elements">
+<div>
     <%= form_for :user, url: '/login' do |f| %>
         <%= f.label :username %><br>
         <%= f.text_field :username %>
-        <br><br>
-        <%= f.label :email %><br>
-        <%= f.text_field :email %>
         <br><br>
         <%= f.label :password %><br>
         <%= f.password_field :password %>
@@ -18,6 +13,5 @@
     <% end %>
     <br><br>
     <p>Don't have an account? <%= link_to "Sign Up", new_user_path %></p>
-    <p><%= link_to('Log in with Facebook!', '/auth/facebook') %></p>
-    <p><%= link_to "Home", root_path %></p>
+    <p><%= link_to "Return Home", root_path %></p>
 </div>

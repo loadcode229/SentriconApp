@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #root
-  root 'welcome#home'
+  root 'users#index'
   
   #session routes
   get '/login' => 'sessions#new'

@@ -6,6 +6,7 @@ class User < ApplicationRecord
     before_create :lowercase_email
     validates :username, presence: true
     validates :email, presence: true, uniqueness: true
+    validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
 
     def lowercase_email
         self.email.downcase!

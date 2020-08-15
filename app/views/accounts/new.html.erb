@@ -1,0 +1,34 @@
+<h2>Add Account</h2>
+<% if @account.errors.any? %>
+    <div>
+        <h3>
+            <%= pluralize(@account.errors.count, "error") %>
+            prevented this location from being saved:
+        </h3>
+        <ul>
+        <% @account.errors.full_messages.each do |msg| %>
+            <li><font color="red"><%= msg %></font></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<div>
+    <%= form_for :account, url: '/accounts' do |f| %>
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+        <br><br>
+        <%= f.label :address %><br>
+        <%= f.text_field :address %>
+        <br><br>
+        <%= f.label :phone_number %><br>
+        <%= f.text_field :phone_number %>
+        <br><br>
+        <%= f.label :instructions %><br>
+        <%= f.text_field :instructions %>
+        <br><br>
+        <%= f.submit %>
+    <% end %>
+</div>
+
+<% console %>
