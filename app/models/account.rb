@@ -1,7 +1,10 @@
 class Account < ApplicationRecord
-  belongs_to :station
-  has_many :accounts_user
-  has_many :users, through: :accounts_user
+  belongs_to :stations
+  
+  has_many :user_accounts
+  has_many :users, through: :user_accounts
+
+  validates :title, uniqueness: { case_sensitive: false }
   validates :name, presence: true
   
 end

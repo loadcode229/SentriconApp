@@ -1,15 +1,28 @@
 Rails.application.routes.draw do
-  #root
-  root 'users#index'
-  
-  #session routes
-  get '/login' => 'sessions#new'
-  post '/login' => 'sessions#create'
-  get '/logout' => 'sessions#destroy'
-  post '/logout' => 'sessions#destroy'
-  get '/auth/facebook/callback' => 'sessions#create'
-  
-  resources :users
+
+  resources :user_accounts, only: [:create]
+
+  resources :users, only: [:show]
+  get '/sign_up', to: "users#new"
+  post '/sign_up', to: "users#create"
+
+  #root route
+  root 'users#show'
+
+  get '/sign_in', to:  "sessions#new"
+  get '/auth/facebook/callback' => 'sessions#facebook'
+  post '/sign_in', to: "sessions#create"
+  get '/sign_out', to: "sessions#destroy"
+
+  #get 'meetups', to: "meetups#all"
+
+  #post 'meetups/day_select', to: "meetups#day_select"
+  #post 'user_group/comment', to: "user_groups#comment"
+
+  #resources :groups do
+  #  resources :meetups
+  #end
+
   resources :accounts
-  resources :stations
+  resources :user_accounts
 end

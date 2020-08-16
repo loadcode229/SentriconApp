@@ -1,0 +1,29 @@
+<h2 class="indent-header">Add Station</h2>
+
+<% if @station.errors.any? %>
+    <div>
+        <h3>
+            <%= pluralize(@station.errors.count, "error") %>
+            prevented this station from being saved:
+        </h3>
+        <ul>
+        <% @station.errors.full_messages.each do |msg| %>
+            <li><font color="red"><%= msg %></font></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<div class="indent-elements">
+  <%= form_for :station, url: '/stations' do |f| %>
+    <label>Station Number:</label><br>
+    <%= f.number_field :station_number %>
+    <br><br>
+    <label>Baited:</label><br>
+    <%= f.check_box :baited %>
+    <br><br>
+    <%= f.submit %>
+  <% end %>
+</div>
+
+<% console %>

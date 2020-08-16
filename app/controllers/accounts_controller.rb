@@ -13,18 +13,33 @@ class AccountsController < ApplicationController
         if @account.save
             redirect_to account_path(@account)
         else
-            render 'new'
+            flash[:notice] = "Account creation was unsuccessful."
+            render new_account_path
         end
     end
 
+    def edit
+        @account = Account.find(params[:id])
+    end
+
     def show
-        @account = Account.find_by(id:params[:id])
+        @account = Account.find(params[:id])
+    end
+
+    def update
+        @account = Account.find(params[:id])
+        if @account.update(account_params)
+            redirect_to account_path(@account)
+        else
+            flash[:notice] = "Something went wrong."
+            redirect_to edit_account_path(@account)
+        end
     end
 
     private
 
     def account_params
-        params.require(:event).permit(
+        params.require(:account).permit(
             :name,
             :address,
             :phone_number,

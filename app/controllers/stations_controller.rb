@@ -1,19 +1,24 @@
 class StationsController < ApplicationController
 
     def index
-
+        @stations = Station.all
     end
 
     def new
-
+        @station = Station.new
     end
 
     def create
-
+        @station = Station.new(station_params)
+        if @station.save
+            redirect_to station_path(@station)
+        else
+            render 'new'
+        end
     end
 
     def show
-
+        @station = Station.find(params[:id])
     end
 
     def edit
@@ -25,11 +30,8 @@ class StationsController < ApplicationController
     def station_params
         params.require(:station).permit(
             :station_number,
-            :activity
+            :activity,
+            :baited
         )
-    end
-
-    def require_login
-        return head(:forbidden) unless session.include? :user_id
     end
 end

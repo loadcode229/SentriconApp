@@ -1,24 +1,9 @@
-<h2 class="indent-header">Signup</h2>
-
-<font color="red"><%= flash[:notice] %></font>
-
-<div class="indent-elements">
-    <%= form_for :user, url: '/users' do |f| %>
-        <%= f.label :username, "Username:" %><br>
-        <%= f.text_field :username %>
-        <br><br>
-        <%= f.label :email, "Email:" %><br>
-        <%= f.text_field :email %>
-        <br><br>
-        <%= f.label :password, "Password:" %><br>
-        <%= f.password_field :password %>
-        <br><br>
-        <%= f.label :password_confirmation, "Confirm Password:" %><br>
-        <%= f.password_field :password_confirmation %>
-        <br><br>
-        <%= f.submit "Sign Up!" %>
-    <% end %>
+<%= form_for(@user, url: sign_up_path) do |f| %>
+    Username: <%= f.text_field :username, :placeholder => (@user.errors.full_messages_for(:username).first || "Enter username here: ") %>
     <br><br>
-    <p>Already have an account? <%= link_to "Log In!", login_path %></p>
-    <p><%= link_to "Home", root_path %></p>
-</div>
+    Email: <%= f.text_field :email, :placeholder => (@user.errors.full_messages_for(:email).first || "Enter email here: ") %>
+    <br><br>
+    Password: <%= f.password_field :password, :placeholder => (@user.errors.full_messages_for(:password).first || "Enter password here: ") %>
+    <br><br>
+    <%= f.submit "Sign Up" %>
+<% end %>

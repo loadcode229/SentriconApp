@@ -1,0 +1,8 @@
+<div class="indent-elements">
+    <% @stations.each do |s| %>
+        <ul>
+            <li><%= s.station_number %></li>
+            <li><%= s.baited %></li>
+        </ul>
+    <% end %>
+</div>
